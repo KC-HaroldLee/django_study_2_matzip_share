@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
-    path('', include('postMatzip.urls')),
-    path('sendEmail/', include('sendEmail.urls')),
-    path('admin/', admin.site.urls),
-    
+    path('', views.index, name='index'),
+    path('matzipDetail/<str:res_id>', views.matzipDetail, name='matzipDetail'), # 유동적인 <>
+    path('matzipCreate/', views.matzipCreate, name='matzipCreate'),
+        path('matzipCreate/create', views.create_mat, name='create_mat'),
+    path('categoryCreate/', views.categoryCreate, name='categoryCreate'),
+        path('categoryCreate/create', views.create_cate, name='create_cate'),
+        path('categoryCreate/delete', views.delete_cate, name='delete_cate'),
 ]
+
+
