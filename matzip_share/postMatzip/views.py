@@ -21,6 +21,16 @@ def matzipDetail(request:WSGIRequest, res_id:str):
     # return HttpResponse("matzipDetail!")
     return render(request, 'postMatzip/matzipDetail.html', content)
 
+def update_mat_page(request:WSGIRequest, res_id:str):
+    categories = models.Category.objects.all()
+    matzip = models.Matzip.objects.get(id=res_id)
+    content = {'categories' : categories, 'matzip' : matzip}
+    # return HttpResponse("matzipDetail!-"+res_id)
+    return render(request, 'postMatzip/matzipUpdate.html', content)
+
+def update_mat(request:WSGIRequest, res_id:str):
+    pass
+
 def matzipCreate(request:WSGIRequest):
     categories = models.Category.objects.all()
     content = {'categories' : categories}

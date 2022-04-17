@@ -20,6 +20,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('matzipDetail/<str:res_id>', views.matzipDetail, name='matzipDetail'), # 유동적인 <>
+        path('matzipDetail/updatePage/<str:res_id>', views.update_mat_page, name='update_mat_page'), 
+        path('matzipDetail/updatePage/update', views.update_mat, name='update_mat'), 
     path('matzipCreate/', views.matzipCreate, name='matzipCreate'),
         path('matzipCreate/create', views.create_mat, name='create_mat'),
     path('categoryCreate/', views.categoryCreate, name='categoryCreate'),
